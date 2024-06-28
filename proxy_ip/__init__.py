@@ -98,7 +98,7 @@ async def get_pikpak_proyxs():
     #         # print(f"{proxy} 无法ping")
     while None in proxies:
         proxies.remove(None)
-    print(proxies)
+    # print(proxies)
     # temp_file = "ip_isOk11.txt"
     #
     # # 获取当前时间
@@ -121,9 +121,9 @@ def ipTest():
     proxies = []
     for proxy in ips:
         if check_proxy(proxy):
-            print(proxy)
+            # print(proxy)
             proxies.append(proxy)
-    print(proxies)
+    # print(proxies)
     temp_file = "ip_isOk.txt"
 
     import datetime

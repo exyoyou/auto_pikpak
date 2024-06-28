@@ -52,34 +52,36 @@ def create_one_mail():
 
 
 def get_mail():
-    json_data = {
-        "min_name_length": 8,
-        "max_name_length": 11
-    }
-    url = 'https://api.internal.temp-mail.io/api/v3/email/new'
-    response = requests.post(url, json=json_data,)
-    response_data = response.json()
-    mail = response_data['email']
-    return mail
+    # json_data = {
+    #     "min_name_length": 8,
+    #     "max_name_length": 11
+    # }
+    # url = 'https://api.internal.temp-mail.io/api/v3/email/new'
+    # response = requests.post(url, json=json_data,verify=False)
+    # response_data = response.json()
+    # mail = response_data['email']
+    # return mail
+    return create_one_mail()
 
 
 # 获取邮箱的验证码内容
 def get_code(mail, max_retries=10, delay=1):
-    retries = 0
-    while retries < max_retries:
-        url = f'https://api.internal.temp-mail.io/api/v3/email/{mail}/messages'
-        response = requests.get(url,)
-        html = response.json()
-        if html:
-            text = (html[0])['body_text']
-            code = re.search('\\d{6}', text).group()
-            logger.info(f'获取邮箱验证码:{code}')
-            return code
-        else:
-            time.sleep(delay)
-            retries += 1
-    logger.info("获取邮箱邮件内容失败，未收到邮件...")
-    return None
+    # retries = 0
+    # while retries < max_retries:
+    #     url = f'https://api.internal.temp-mail.io/api/v3/email/{mail}/messages'
+    #     response = requests.get(url,)
+    #     html = response.json()
+    #     if html:
+    #         text = (html[0])['body_text']
+    #         code = re.search('\\d{6}', text).group()
+    #         logger.info(f'获取邮箱验证码:{code}')
+    #         return code
+    #     else:
+    #         time.sleep(delay)
+    #         retries += 1
+    # logger.info("获取邮箱邮件内容失败，未收到邮件...")
+    # return None
+    return get_new_mail_code(mail)
 
 
 def get_mails(mail):

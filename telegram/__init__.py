@@ -5,7 +5,7 @@ from telebot.types import Message, ReplyKeyboardMarkup, KeyboardButton, Chat, In
 import config.config
 import logging
 
-from main import ManagerAlistPikpak, run_all as mian_run_all, 所有的没有vip的PikPak, 注册新号激活
+from main import run_all as mian_run_all, 所有的没有vip的PikPak, 注册新号激活
 from system_service import SystemService, SystemServiceTager
 from tools import set_def_callback
 
